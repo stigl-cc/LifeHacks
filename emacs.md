@@ -40,3 +40,6 @@ Easiest way to fix is to include compile_commands.json in your project, which yo
 - cmake: `set(EXPORT_COMPILE_COMMANDS TRUE)`
 - make:  `bear -- make`
 - other: `bear -- <build command>`
+
+# LSP list arguments of a function
+- M-n - scroll through overloads
