@@ -63,3 +63,34 @@ limited_new_brightness=$(($new_brightness<0 ? 0 : $new_brightness))
 echo "$brightness => $limited_new_brightness"
 ddcutil setvcp 10 $limited_new_brightness
 ```
+
+# Run user-services on startup(even if user doesn't log in)
+You need to enable linger
+Check if enabled: 
+`loginctl list-users`
+Enable:
+`loginctl enable-linger stigl`
+
+# Run podman containers as a service(rootless)
+1) Create directory for them
+`mkdir .config/systemd/user/ -p`
+2) Auto-generate service file
+`podman generate systemd <container-name> > ~/.config/systemd/user/container-website.service`
+3) Check out the file if its valid
+`cat .config/systemd/user/container-website.service`
+4) Success, now you can enable/start the service(the systemctl --user status and stuff works too)
+
+# localhost isnt working for cloudflared(or your service in general)
+Your server(tcp/udp//-ip  listener) might not support IPv6, try out `127.0.0.1`
+
+# List all shutdowns/reboots/boots and stuff
+`last -x`
+
+# Disable sleep/hibernation
+-> `/etc/systemd/sleep.conf`
+```
+[Sleep]
+
+AllowSuspend=no
+AllowHibernation=no
+```
