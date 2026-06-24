@@ -43,3 +43,6 @@ Easiest way to fix is to include compile_commands.json in your project, which yo
 
 # LSP list arguments of a function
 - M-n - scroll through overloads
+
+# Find out which variable inside cc-styles controls the current offset
+- `c-show-syntactic-information` or `C-c C-s` by default

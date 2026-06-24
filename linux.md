@@ -94,3 +94,10 @@ Your server(tcp/udp//-ip  listener) might not support IPv6, try out `127.0.0.1`
 AllowSuspend=no
 AllowHibernation=no
 ```
+
+# Fix laggy webgl in firefox
+`gfx.x11-egl.force-disabled = true`
+
+# Stop firefox from creating desktop
+`nano .config/user-dirs.dirs` 
+And set your home(or any other directory) as the desktop directory.
